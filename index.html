@@ -341,19 +341,19 @@
 <p>极大似然估计解释最小二乘法：</p>
 <p>$$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$</p>
 <p>误差$\epsilon^{(i)} (1 \le i \le m)$是独立同分布的，服从均值为0，方差为$\delta^2$的高斯分布。</p>
-<p>因此，$p(\epsilon^{(i)}) = \frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(\epsilon^{(i)})^2}{2\delta^2})}$</p>
+<p>因此，$p(\epsilon^{(i)}) = \frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{\epsilon(i)^2}{2\delta^2})}$</p>
 <p>将$$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$代入上述公式可得，</p>
-<p>$p(y^{(i)}|x^{(i)};\theta) = \frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)-\theta^T x^{(i)}})^2}{2\delta^2})}$</p>
+<p>$p(y^{(i)}|x^{(i)};\theta) = \frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2})}$</p>
 <p>假设总共有$m$个样本，根据极大似然估计，其似然函数为：</p>
 <p>$L(\theta) = \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)$</p>
-<p>​          $= \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)-\theta^T x^{(i)}})^2}{2\delta^2})} $</p>
+<p>​          $= \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2})} $</p>
 <p>对似然函数求对数可得：</p>
 <p>$l(\theta) = log L(\theta)$</p>
-<p>​        $= log \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)-\theta^T x^{(i)}})^2}{2\delta^2})} ​$</p>
-<p>​    $= \sum_{i=1}^m log \frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)-\theta^T x^{(i)}})^2}{2\delta^2})} $</p>
-<p>​    $= m log \frac{1}{\sqrt(2\pi)\delta} - \frac{1}{\delta^2} \cdot \frac{1}{2}\sum_{i=1}^m(y^{(i)-\theta^T x^{(i)}})^2$</p>
+<p>​        $= log \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2})} $</p>
+<p>​    $= \sum_{i=1}^m log \frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2})} $</p>
+<p>​    $= m log \frac{1}{\sqrt(2\pi)\delta} - \frac{1}{\delta^2} \cdot \frac{1}{2}\sum_{i=1}^m(y^{(i)}-\theta^T x^{(i)})^2$</p>
 <p>可以看出，要先使得似然函数最大，则必须使损失函数$J(\theta)$最下。</p>
-<p>$J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)-\theta^T x^{(i)}})^2$</p>
+<p>$J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2$</p>
 
           
         
