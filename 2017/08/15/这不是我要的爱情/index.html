@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="线性回归模型为： $$ h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$ 极大似然估计解释最小二乘法我们首先讲解一下用极大似然估计解释最小二乘法： $$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$误差$\epsilon^{(i)}">
+<meta name="description" content="线性回归模型为： $$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$ 极大似然估计解释最小二乘法我们首先讲解一下用极大似然估计解释最小二乘法： $$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$误差$\epsilon^{(i)}">
 <meta name="keywords" content="第一篇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="这不是我要的爱情">
 <meta property="og:url" content="http://yoursite.com/2017/08/15/这不是我要的爱情/index.html">
 <meta property="og:site_name" content="请在家长陪同下观看">
-<meta property="og:description" content="线性回归模型为： $$ h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$ 极大似然估计解释最小二乘法我们首先讲解一下用极大似然估计解释最小二乘法： $$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$误差$\epsilon^{(i)}">
+<meta property="og:description" content="线性回归模型为： $$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$ 极大似然估计解释最小二乘法我们首先讲解一下用极大似然估计解释最小二乘法： $$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$误差$\epsilon^{(i)}">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="d:/Desktop/1042406-20161017221342935-1872962415.png">
-<meta property="og:updated_time" content="2017-08-15T14:02:14.544Z">
+<meta property="og:image" content="e:/hexo/lihengwannafly.github.io/source/images/GradientDescent.png">
+<meta property="og:updated_time" content="2017-08-15T14:20:53.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="这不是我要的爱情">
-<meta name="twitter:description" content="线性回归模型为： $$ h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$ 极大似然估计解释最小二乘法我们首先讲解一下用极大似然估计解释最小二乘法： $$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$误差$\epsilon^{(i)}">
-<meta name="twitter:image" content="d:/Desktop/1042406-20161017221342935-1872962415.png">
+<meta name="twitter:description" content="线性回归模型为： $$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$ 极大似然估计解释最小二乘法我们首先讲解一下用极大似然估计解释最小二乘法： $$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$误差$\epsilon^{(i)}">
+<meta name="twitter:image" content="e:/hexo/lihengwannafly.github.io/source/images/GradientDescent.png">
 
 
 
@@ -337,21 +337,20 @@
 
       
         <h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>模型为：</p>
-<p>$$<br> h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x<br>$$</p>
+<p>$$<br>h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x<br>$$</p>
 <h4 id="极大似然估计解释最小二乘法"><a href="#极大似然估计解释最小二乘法" class="headerlink" title="极大似然估计解释最小二乘法"></a>极大似然估计解释最小二乘法</h4><p>我们首先讲解一下用极大似然估计解释最小二乘法：</p>
 <p>$$<br>y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}<br>$$<br>误差$\epsilon^{(i)} (1 \le i \le m)$是独立同分布的，服从均值为0，方差为$\delta^2$的高斯分布。</p>
 <p>因此，<br>$$<br>p(\epsilon^{(i)}) = \frac{1}{\sqrt(2\pi)\delta}e^{-\frac{\epsilon(i)^2}{2\delta^2}}<br>$$<br>将$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$代入上述公式可得，</p>
-<p>$$<br>p(y^{(i)}|x^{(i)};\theta) = \frac{1}{\sqrt(2\pi)\delta}e^{-(\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2})}<br>$$<br>假设总共有$m$个样本，根据极大似然估计，其似然函数为：<br>$$<br>L(\theta) = \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)\\<br>= \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}}<br>$$<br>对似然函数求对数可得：<br>$$<br>l(\theta) = log L(\theta)\\<br>= log \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} \\<br>= \sum_{i=1}^m log \frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} \\<br>= m log \frac{1}{\sqrt(2\pi)\delta} - \frac{1}{\delta^2} \cdot \frac{1}{2}\sum_{i=1}^m(y^{(i)}-\theta^T x^{(i)})^2<br>$$<br>可以看出，要先使得似然函数最大，则必须使损失函数$J(\theta)$最下。</p>
-<p>$$J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2$$<br>$$<br>J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2<br>$$<br>正则化和防止过拟合：</p>
+<p>$$<br>p(y^{(i)}|x^{(i)};\theta) = \frac{1}{\sqrt(2\pi)\delta}e^{-(\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2})}<br>$$<br>假设总共有$m$个样本，根据极大似然估计，其似然函数为：<br>$$<br>L(\theta) = \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)<br>= \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}}<br>$$<br>对似然函数求对数可得：<br>$$<br>l(\theta) = log L(\theta)\\<br>= log \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} \\<br>= \sum_{i=1}^m log \frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} \\<br>= m log \frac{1}{\sqrt(2\pi)\delta} - \frac{1}{\delta^2} \cdot \frac{1}{2}\sum_{i=1}^m(y^{(i)}-\theta^T x^{(i)})^2<br>$$<br>可以看出，要先使得似然函数最大，则必须使损失函数$J(\theta)$最下。</p>
+<p>$$<br>J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2<br>$$<br>正则化和防止过拟合：</p>
 <p>L1-Norm：<br>$$<br>J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2 + \lambda \sum_{j=1}^n |\theta_j|<br>$$<br>L2-Norm：<br>$$<br>J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2<br>$$<br>Elastic Net：<br>$$<br>J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2 + \lambda (\rho\sum_{j=1}^n |\theta_j|+(1-\rho) \sum_{j=1}^n \theta_j^2)<br>$$<br>其中，$\lambda &gt;0, \rho \in[0,1]$</p>
 <p>通常情况下，使用L2-Nrom的损失函数进行梯度下降计算$\theta$。</p>
 <h4 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h4><ol>
 <li>初始化$\theta$（随机初始化）</li>
 <li>沿着负梯度方向迭代，更新后的$\theta使$$J(\theta)$下降，即：</li>
 </ol>
-<p>$$\theta = \theta - \alpha \cdot \frac{\partial J(\theta)}{\partial \theta}$$<br>$$<br>\theta = \theta - \alpha \cdot \frac{\partial J(\theta)}{\partial \theta}<br>$$<br>$\alpha​$为学习率。</p>
-<p><img src="D:\Desktop\1042406-20161017221342935-1872962415.png" alt="图1 梯度下降法示意图"></p>
-<p>$$<br>\frac{\partial J(\theta)}{\partial \theta_j}=\frac{\partial}{\partial \theta_j}\frac{1}2(h_\theta(x)-y)^2\\<br>=(h_\theta(x)-y)\cdot\frac{\partial}{\partial \theta_j}(h_\theta(x)-y)\\<br>=(h_\theta(x)-y)\cdot\frac{\partial}{\partial \theta_j}(\sum_{i=0}^n\theta_ix_i-y)\\<br>=(h_\theta(x)-y)x_j<br>$$</p>
+<p>$$<br>\theta = \theta - \alpha \cdot \frac{\partial J(\theta)}{\partial \theta}<br>$$<br>$\alpha​$为学习率。</p>
+<p><img src="E:\hexo\lihengwannafly.github.io\source\images\GradientDescent.png" alt="图1 梯度下降法"></p>
 <p>$$<br>\frac{\partial J(\theta)}{\partial \theta_j}=\frac{\partial}{\partial \theta_j}\frac{1}2(h_\theta(x)-y)^2\\<br>=(h_\theta(x)-y)\cdot\frac{\partial}{\partial \theta_j}(h_\theta(x)-y)\\<br>=(h_\theta(x)-y)\cdot\frac{\partial}{\partial \theta_j}(\sum_{i=0}^n\theta_ix_i-y)\\<br>=(h_\theta(x)-y)x_j<br>$$</p>
 <h5 id="批量梯度下降法-Batch-Gradient-Descent"><a href="#批量梯度下降法-Batch-Gradient-Descent" class="headerlink" title="批量梯度下降法(Batch Gradient Descent)"></a>批量梯度下降法(Batch Gradient Descent)</h5><blockquote>
 <p>Repeat until convergence{<br>$$<br>\theta_j := \theta_j +\alpha  \sum_{i=1}^m(y^{(i)}-h_\theta(x^{(i)}))x_j^{(i)}<br>$$<br>}</p>
