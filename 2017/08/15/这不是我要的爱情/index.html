@@ -102,12 +102,12 @@
 <meta property="og:site_name" content="请在家长陪同下观看">
 <meta property="og:description" content="线性回归模型为： $$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$ 极大似然估计解释最小二乘法我们首先讲解一下用极大似然估计解释最小二乘法： $$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$误差$\epsilon^{(i)}">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="e:/hexo/lihengwannafly.github.io/source/images/GradientDescent.png">
-<meta property="og:updated_time" content="2017-08-15T14:20:53.380Z">
+<meta property="og:image" content="http://yoursite.com/images/GradientDescent.png">
+<meta property="og:updated_time" content="2017-08-15T14:45:35.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="这不是我要的爱情">
 <meta name="twitter:description" content="线性回归模型为： $$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$ 极大似然估计解释最小二乘法我们首先讲解一下用极大似然估计解释最小二乘法： $$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$误差$\epsilon^{(i)}">
-<meta name="twitter:image" content="e:/hexo/lihengwannafly.github.io/source/images/GradientDescent.png">
+<meta name="twitter:image" content="http://yoursite.com/images/GradientDescent.png">
 
 
 
@@ -350,7 +350,7 @@
 <li>沿着负梯度方向迭代，更新后的$\theta使$$J(\theta)$下降，即：</li>
 </ol>
 <p>$$<br>\theta = \theta - \alpha \cdot \frac{\partial J(\theta)}{\partial \theta}<br>$$<br>$\alpha​$为学习率。</p>
-<p><img src="E:\hexo\lihengwannafly.github.io\source\images\GradientDescent.png" alt="图1 梯度下降法"></p>
+<p><img src="\images\GradientDescent.png" alt="图1 梯度下降法"></p>
 <p>$$<br>\frac{\partial J(\theta)}{\partial \theta_j}=\frac{\partial}{\partial \theta_j}\frac{1}2(h_\theta(x)-y)^2\\<br>=(h_\theta(x)-y)\cdot\frac{\partial}{\partial \theta_j}(h_\theta(x)-y)\\<br>=(h_\theta(x)-y)\cdot\frac{\partial}{\partial \theta_j}(\sum_{i=0}^n\theta_ix_i-y)\\<br>=(h_\theta(x)-y)x_j<br>$$</p>
 <h5 id="批量梯度下降法-Batch-Gradient-Descent"><a href="#批量梯度下降法-Batch-Gradient-Descent" class="headerlink" title="批量梯度下降法(Batch Gradient Descent)"></a>批量梯度下降法(Batch Gradient Descent)</h5><blockquote>
 <p>Repeat until convergence{<br>$$<br>\theta_j := \theta_j +\alpha  \sum_{i=1}^m(y^{(i)}-h_\theta(x^{(i)}))x_j^{(i)}<br>$$<br>}</p>
