@@ -203,7 +203,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -213,7 +213,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -223,7 +223,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -335,7 +335,25 @@
       
         
           
-            <p>$$ e =xc^2 $$</p>
+            <h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>模型为：</p>
+<p>$$ h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$</p>
+<p>一般情况下，使用梯度下降法进行$\theta$的求解：</p>
+<p>极大似然估计解释最小二乘法：</p>
+<p>$$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$</p>
+<p>误差$\epsilon^{(i)} (1 \le i \le m)$是独立同分布的，服从均值为0，方差为$\delta^2$的高斯分布。</p>
+<p>因此，$p(\epsilon^{(i)}) = \frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(\epsilon^{(i)})^2}{2\delta^2})}$</p>
+<p>将$$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$代入上述公式可得，</p>
+<p>$p(y^{(i)}|x^{(i)};\theta) = \frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)-\theta^T x^{(i)}})^2}{2\delta^2})}$</p>
+<p>假设总共有$m$个样本，根据极大似然估计，其似然函数为：</p>
+<p>$L(\theta) = \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)$</p>
+<p>​          $= \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)-\theta^T x^{(i)}})^2}{2\delta^2})} $</p>
+<p>对似然函数求对数可得：</p>
+<p>$l(\theta) = log L(\theta)$</p>
+<p>​        $= log \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)-\theta^T x^{(i)}})^2}{2\delta^2})} ​$</p>
+<p>​    $= \sum_{i=1}^m log \frac{1}{\sqrt(2\pi)\delta}e^{-(-\frac{(y^{(i)-\theta^T x^{(i)}})^2}{2\delta^2})} $</p>
+<p>​    $= m log \frac{1}{\sqrt(2\pi)\delta} - \frac{1}{\delta^2} \cdot \frac{1}{2}\sum_{i=1}^m(y^{(i)-\theta^T x^{(i)}})^2$</p>
+<p>可以看出，要先使得似然函数最大，则必须使损失函数$J(\theta)$最下。</p>
+<p>$J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)-\theta^T x^{(i)}})^2$</p>
 
           
         
@@ -416,7 +434,7 @@
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/archives">
                 <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">日志</span>
               </a>
