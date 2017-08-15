@@ -336,16 +336,33 @@
         
           
             <h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>模型为：</p>
-<h5 id="h-theta-x-theta-0-theta-1-x-1-theta-2-x-2-…-theta-n-x-n-theta-T-x"><a href="#h-theta-x-theta-0-theta-1-x-1-theta-2-x-2-…-theta-n-x-n-theta-T-x" class="headerlink" title="$$ h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$"></a>$$ h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x$$</h5><p>一般情况下，使用梯度下降法进行$\theta$的求解：</p>
-<p>极大似然估计解释最小二乘法：</p>
-<h5 id="y-i-theta-T-x-i-epsilon-i"><a href="#y-i-theta-T-x-i-epsilon-i" class="headerlink" title="$$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$"></a>$$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$</h5><p>误差$\epsilon^{(i)} (1 \le i \le m)$是独立同分布的，服从均值为0，方差为$\delta^2$的高斯分布。</p>
-<p>因此，$$p(\epsilon^{(i)}) = \frac{1}{\sqrt(2\pi)\delta}e^{-\frac{\epsilon(i)^2}{2\delta^2}}$$</p>
-<p>将$$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$$代入上述公式可得，</p>
-<h5 id="p-y-i-x-i-theta-frac-1-sqrt-2-pi-delta-e-frac-y-i-theta-T-x-i-2-2-delta-2"><a href="#p-y-i-x-i-theta-frac-1-sqrt-2-pi-delta-e-frac-y-i-theta-T-x-i-2-2-delta-2" class="headerlink" title="$$p(y^{(i)}|x^{(i)};\theta) = \frac{1}{\sqrt(2\pi)\delta}e^{-(\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2})}$$"></a>$$p(y^{(i)}|x^{(i)};\theta) = \frac{1}{\sqrt(2\pi)\delta}e^{-(\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2})}$$</h5><p>假设总共有$m$个样本，根据极大似然估计，其似然函数为：</p>
-<h5 id="L-theta-prod-i-1-mp-y-i-x-i-theta"><a href="#L-theta-prod-i-1-mp-y-i-x-i-theta" class="headerlink" title="$$L(\theta) = \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)$$"></a>$$L(\theta) = \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)$$</h5><h5 id="prod-i-1-m-frac-1-sqrt-2-pi-delta-e-frac-y-i-theta-T-x-i-2-2-delta-2"><a href="#prod-i-1-m-frac-1-sqrt-2-pi-delta-e-frac-y-i-theta-T-x-i-2-2-delta-2" class="headerlink" title="$$= \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} $$"></a>$$= \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} $$</h5><p>对似然函数求对数可得：</p>
-<h5 id="l-theta-log-L-theta"><a href="#l-theta-log-L-theta" class="headerlink" title="$$l(\theta) = log L(\theta)$$"></a>$$l(\theta) = log L(\theta)$$</h5><h5 id="log-prod-i-1-m-frac-1-sqrt-2-pi-delta-e-frac-y-i-theta-T-x-i-2-2-delta-2"><a href="#log-prod-i-1-m-frac-1-sqrt-2-pi-delta-e-frac-y-i-theta-T-x-i-2-2-delta-2" class="headerlink" title="$$= log \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} $$"></a>$$= log \prod_{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} $$</h5><p>$$= \sum_{i=1}^m log \frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} $$</p>
-<h5 id="m-log-frac-1-sqrt-2-pi-delta-frac-1-delta-2-cdot-frac-1-2-sum-i-1-m-y-i-theta-T-x-i-2"><a href="#m-log-frac-1-sqrt-2-pi-delta-frac-1-delta-2-cdot-frac-1-2-sum-i-1-m-y-i-theta-T-x-i-2" class="headerlink" title="$$= m log \frac{1}{\sqrt(2\pi)\delta} - \frac{1}{\delta^2} \cdot \frac{1}{2}\sum_{i=1}^m(y^{(i)}-\theta^T x^{(i)})^2$$"></a>$$= m log \frac{1}{\sqrt(2\pi)\delta} - \frac{1}{\delta^2} \cdot \frac{1}{2}\sum_{i=1}^m(y^{(i)}-\theta^T x^{(i)})^2$$</h5><p>可以看出，要先使得似然函数最大，则必须使损失函数$J(\theta)$最下。</p>
-<h5 id="J-theta-frac-1-2-sum-i-1-m-y-i-theta-T-x-i-2"><a href="#J-theta-frac-1-2-sum-i-1-m-y-i-theta-T-x-i-2" class="headerlink" title="$$J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2$$"></a>$$J(\theta) =\frac{1}{2}\sum_{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2$$</h5>
+<p>$$<br> h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n = \theta^T x<br>$$</p>
+<h4 id="极大似然估计解释最小二乘法"><a href="#极大似然估计解释最小二乘法" class="headerlink" title="极大似然估计解释最小二乘法"></a>极大似然估计解释最小二乘法</h4><p>我们首先讲解一下用极大似然估计解释最小二乘法：</p>
+<p>$$<br>y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}<br>$$<br>误差$\epsilon^{(i)} (1 \le i \le m)$是独立同分布的，服从均值为0，方差为$\delta^2$的高斯分布。</p>
+<p>因此，<br>$$<br>p(\epsilon^{(i)}) = \frac{1}{\sqrt(2\pi)\delta}e^{-\frac{\epsilon(i)^2}{2\delta^2}}<br>$$<br>将$y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$代入上述公式可得，</p>
+<p>$$<br>p(y^{(i)}|x^{(i)};\theta) = \frac{1}{\sqrt(2\pi)\delta}e^{-(\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2})}<br>$$<br>假设总共有$m$个样本，根据极大似然估计，其似然函数为：<br>$$<br>L(\theta) = \prod<em>{i=1}^mp(y^{(i)}|x^{(i)};\theta)\<br>= \prod</em>{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}}<br>$$<br>对似然函数求对数可得：<br>$$<br>l(\theta) = log L(\theta)\<br>= log \prod<em>{i=1}^m\frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} \<br>= \sum</em>{i=1}^m log \frac{1}{\sqrt(2\pi)\delta}e^{-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\delta^2}} \<br>= m log \frac{1}{\sqrt(2\pi)\delta} - \frac{1}{\delta^2} \cdot \frac{1}{2}\sum_{i=1}^m(y^{(i)}-\theta^T x^{(i)})^2<br>$$<br>可以看出，要先使得似然函数最大，则必须使损失函数$J(\theta)$最下。</p>
+<p>$$J(\theta) =\frac{1}{2}\sum<em>{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2$$<br>$$<br>J(\theta) =\frac{1}{2}\sum</em>{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2<br>$$<br>正则化和防止过拟合：</p>
+<p>L1-Norm：<br>$$<br>J(\theta) =\frac{1}{2}\sum<em>{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2 + \lambda \sum</em>{j=1}^n |\theta<em>j|<br>$$<br>L2-Norm：<br>$$<br>J(\theta) =\frac{1}{2}\sum</em>{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2 + \lambda \sum_{j=1}^n \theta<em>j^2<br>$$<br>Elastic Net：<br>$$<br>J(\theta) =\frac{1}{2}\sum</em>{i=1}^m(y^{(i)} - \theta^T x^{(i)})^2 + \lambda (\rho\sum_{j=1}^n |\theta<em>j|+(1-\rho) \sum</em>{j=1}^n \theta_j^2)<br>$$<br>其中，$\lambda &gt;0, \rho \in[0,1]$</p>
+<p>通常情况下，使用L2-Nrom的损失函数进行梯度下降计算$\theta$。</p>
+<h4 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h4><ol>
+<li>初始化$\theta$（随机初始化）</li>
+<li>沿着负梯度方向迭代，更新后的$\theta使$$J(\theta)$下降，即：</li>
+</ol>
+<p>$$\theta = \theta - \alpha \cdot \frac{\partial J(\theta)}{\partial \theta}$$<br>$$<br>\theta = \theta - \alpha \cdot \frac{\partial J(\theta)}{\partial \theta}<br>$$<br>$\alpha​$为学习率。</p>
+<p><img src="D:\Desktop\1042406-20161017221342935-1872962415.png" alt="图1 梯度下降法示意图"></p>
+<p>$$<br>\frac{\partial J(\theta)}{\partial \theta_j}=\frac{\partial}{\partial \theta<em>j}\frac{1}2(h</em>\theta(x)-y)^2\<br>=(h_\theta(x)-y)\cdot\frac{\partial}{\partial \theta<em>j}(h</em>\theta(x)-y)\<br>=(h_\theta(x)-y)\cdot\frac{\partial}{\partial \theta<em>j}(\sum</em>{i=0}^n\theta_ix<em>i-y)\<br>=(h</em>\theta(x)-y)x_j<br>$$</p>
+<h5 id="批量梯度下降法-Batch-Gradient-Descent"><a href="#批量梯度下降法-Batch-Gradient-Descent" class="headerlink" title="批量梯度下降法(Batch Gradient Descent)"></a>批量梯度下降法(Batch Gradient Descent)</h5><blockquote>
+<p>Repeat until convergence{<br>$$<br>\theta_j := \theta<em>j +\alpha  \sum</em>{i=1}^m(y^{(i)}-h_\theta(x^{(i)}))x_j^{(i)}<br>$$<br>}</p>
+</blockquote>
+<h5 id="随机梯度下降法-stochastic-Gradient-Descent"><a href="#随机梯度下降法-stochastic-Gradient-Descent" class="headerlink" title="随机梯度下降法(stochastic Gradient Descent)"></a>随机梯度下降法(stochastic Gradient Descent)</h5><blockquote>
+<p>Loop{</p>
+<p>​    for i = 1 to m{<br>$$<br>\theta_j:= \theta<em>j +\alpha  (y^{(i)}-h</em>\theta(x^{(i)}))x_j^{(i)}<br>$$<br>​        }</p>
+<p>}</p>
+</blockquote>
+<h5 id="mini-batch-Gradient-Descent"><a href="#mini-batch-Gradient-Descent" class="headerlink" title="mini-batch Gradient Descent"></a>mini-batch Gradient Descent</h5><blockquote>
+<p>这是介于以上两种方法的折中，每次随机选取大小为<em>b</em>的<em>mini-batch(b&lt;m)</em> ，这样既节省了计算整个批量的时间，同时用<em>mini-batch</em>计算的方向也会更加准确。</p>
+</blockquote>
+
           
         
       
